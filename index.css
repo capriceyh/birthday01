@@ -1,0 +1,182 @@
+.first{
+    
+    background-color: aliceblue;
+    position:absolute;
+    background: url(./bg.jpg) ;
+    backdrop-filter: blur(100px);
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    backdrop-filter:saturate(70%) blur(4px);
+}
+
+.second{
+    
+    width: 20rem;
+    height: 14rem;
+    position:absolute; 
+    margin-top:15%; margin-left:10%;
+    background-image: url(./bg.jpg);
+    background-size: 100% 100%;
+    
+    
+}
+
+.three{
+    font-family:fantasy;
+    color: pink;
+    font-size: 4;
+    width: 14rem;
+    height: 3rem;
+    margin-top:1rem; margin-left:6rem;
+    background-color: rgba(255,255,255,0);
+    
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+.box {
+    /* 大盒子相对定位，占据原来的位置 */
+    position: relative;
+    width: 25rem;
+    height: 14rem;
+    background-color: blue;
+    overflow: hidden;
+    margin: 100px auto;
+}
+
+img {
+    width: 520px;
+    height: 280px;
+}
+
+.taobao {
+    /* 包图片的盒子宽度等于6张图片加起来的宽度*/
+    /* 高度等于图片的高度 */
+    width: 3120px;
+    height: 280px;
+    /* animation 一整个动画的时间 是10秒 */
+    /* infinite代表动画无限的执行（动画的执行次数） */
+    animation: 10s RBT infinite;
+    /* 相邻的行内块在一行上，之间会有空白缝隙 
+    所以是用来清除行内块间距 的*/
+    font-size: 0;
+}
+
+@keyframes RBT {
+    /* 初始状态为0 时 不移动 */
+    0% {
+        transform: translateX(0px);
+    }
+    /* 动画时间过去10%时 就得移动一张图片的距离 */
+    /* 10*10%=1 表示一秒钟 移动了一张图片的距离 */
+    10% {
+        transform: translateX(-520px);
+    }
+    /* 10*20%=2 表示到第二秒的时候图片不移动 停留了一秒钟 */
+    20% {
+        transform: translateX(-520px);
+    }
+    30% {
+        transform: translateX(-1040px);
+    }
+    40% {
+        transform: translateX(-1040px);
+    }
+    50% {
+        transform: translateX(-1560px);
+    }
+    60% {
+        transform: translateX(-1560px);
+    }
+    70% {
+        transform: translateX(-2080px);
+    }
+    80% {
+        transform: translateX(-2080px);
+    }
+    90% {
+        transform: translateX(-2600px);
+    }
+    100% {
+        transform: translateX(-2600px);
+    }
+}
+
+
+/* 并集选择器集体声明 让代码更简洁 */
+
+.arrow-l,
+.arrow-r {
+    /* 只能用定位做，才能压住盒子 */
+    /* 不要占有位置，随便移动定位，必须用绝对定位 */
+    position: absolute;
+    /* 绝对定位的盒子无须转换，直接给大小 */
+    width: 20px;
+    height: 30px;
+    /* 垂直居中公式 */
+    /* 先走父级高度的50% */
+    top: 50%;
+    /* 往上走自己高度的一半 */
+    margin-top: -15px;
+    background: rgba(0, 0, 0, .2);
+    text-decoration: none;
+    color: #fff;
+    line-height: 30px;
+}
+
+.arrow-l {
+    left: 0;
+    border-radius: 0 15px 15px 0;
+}
+
+.arrow-r {
+    right: 0;
+    text-align: right;
+    /* 圆角矩形 */
+    border-radius: 15px 0 0 15px;
+}
+
+
+/* 鼠标经过，箭头颜色改变 */
+
+.arrow-l:hover,
+.arrow-r:hover {
+    background: rgba(0, 0, 0, .4);
+}
+
+.circle {
+    position: absolute;
+    left: 50%;
+    margin-left: -35px;
+    bottom: 15px;
+    width: 70px;
+    height: 13px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 7px;
+}
+
+.circle li {
+    /* position: fixed; */
+    float: left;
+    width: 8px;
+    height: 8px;
+    background-color: #fff;
+    margin: 3px;
+    border-radius: 50%;
+    /* 设定鼠标的形状为一只伸出食指的手 */
+    cursor: pointer;
+}
+
+
+/* current 当前的意思   此处一定要注意优先级的问题 */
+
+.circle .current {
+    background-color: #ff5000;
+}
